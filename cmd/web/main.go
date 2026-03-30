@@ -8,7 +8,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/tsoggtbayar/gogame/internal/llmmove"
+	"github.com/tsoggtbayar/gogame/pkg/llmmove"
 )
 
 func main() {
