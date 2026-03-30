@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Баатараа</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="hero">
+      <div class="brand-lockup">
+        <div class="brand-mark" aria-hidden="true">
+          <svg class="brand-logo" viewBox="0 0 96 96" width="112" height="112">
+            <defs>
+              <linearGradient id="brand-ring" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ff5c39" />
+                <stop offset="45%" stop-color="#5eead4" />
+                <stop offset="100%" stop-color="#fbbf24" />
+              </linearGradient>
+              <linearGradient id="brand-shine" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="rgba(255,92,57,0.35)" />
+                <stop offset="100%" stop-color="rgba(251,191,36,0.12)" />
+              </linearGradient>
+              <filter id="brand-glow" x="-40%" y="-40%" width="180%" height="180%">
+                <feGaussianBlur stdDeviation="2" result="b" />
+                <feMerge>
+                  <feMergeNode in="b" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+            <rect x="4" y="4" width="88" height="88" rx="20" fill="#0a121c" stroke="url(#brand-ring)" stroke-width="2.5" filter="url(#brand-glow)" />
+            <rect x="4" y="4" width="88" height="88" rx="20" fill="url(#brand-shine)" opacity="0.9" />
+            <!-- grid -->
+            <g stroke="#1e3d52" stroke-width="1.25" stroke-linecap="round">
+              <line x1="36" y1="14" x2="36" y2="82" />
+              <line x1="60" y1="14" x2="60" y2="82" />
+              <line x1="14" y1="36" x2="82" y2="36" />
+              <line x1="14" y1="60" x2="82" y2="60" />
+            </g>
+            <!-- X -->
+            <g stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="18" x2="30" y2="30" stroke="#5eead4" stroke-width="3.2" />
+              <line x1="30" y1="18" x2="18" y2="30" stroke="#5eead4" stroke-width="3.2" />
+            </g>
+            <!-- O -->
+            <circle cx="72" cy="72" r="9" fill="none" stroke="#fbbf24" stroke-width="3" />
+            <!-- center accent dot -->
+            <circle cx="48" cy="48" r="3" fill="#ff5c39" opacity="0.85" />
+          </svg>
+        </div>
+        <h1 class="title">Баатараа</h1>
+      </div>
+    </header>
+
+    <main class="shell">
+      <section id="screen-menu" class="panel screen">
+        <h2 class="panel-title" id="menu-title">Горим сонгох</h2>
+        <ul class="menu" role="list" aria-labelledby="menu-title">
+          <li><button type="button" class="menu-btn" data-action="local">Хоёр тоглогч (нэг дэлгэц)</button></li>
+          <li><button type="button" class="menu-btn menu-btn--featured" data-action="bot">Боттой</button></li>
+          <li><button type="button" class="menu-btn menu-btn--featured" data-action="llm">LLM-тай</button></li>
+        </ul>
+        <p class="hint"><kbd>↑</kbd><kbd>↓</kbd> анхаарлыг шилжүүлнэ · дарж эсвэл <kbd>Enter</kbd></p>
+      </section>
+
+      <section id="screen-bot-side" class="panel screen hidden" hidden>
+        <h2 class="panel-title" id="side-title">Эхэнд X-ээр тоглох уу?</h2>
+        <ul class="menu" role="list" aria-labelledby="side-title">
+          <li><button type="button" class="menu-btn" data-human-x="true">Та X тоглоно</button></li>
+          <li><button type="button" class="menu-btn" data-human-x="false">Та O тоглоно</button></li>
+          <li><button type="button" class="menu-btn menu-btn--ghost" data-action="back-menu">Буцах</button></li>
+        </ul>
+        <p class="hint"><kbd>↑</kbd><kbd>↓</kbd> · дарж эсвэл <kbd>Enter</kbd> · <kbd>Esc</kbd> буцах</p>
+      </section>
+
+      <section id="screen-difficulty" class="panel screen hidden" hidden>
+        <h2 class="panel-title" id="diff-title">Ботын хүндрэл</h2>
+        <ul class="menu" role="list" aria-labelledby="diff-title">
+          <li><button type="button" class="menu-btn" data-difficulty="1">1 · Анхан шат</button></li>
+          <li><button type="button" class="menu-btn" data-difficulty="2">2 · Дунд шат</button></li>
+          <li><button type="button" class="menu-btn" data-difficulty="3">3 · Гүнзгий</button></li>
+          <li><button type="button" class="menu-btn menu-btn--ghost" data-action="back-side">Буцах</button></li>
+        </ul>
+        <p class="hint"><kbd>↑</kbd><kbd>↓</kbd> · <kbd>1</kbd>–<kbd>3</kbd> түргэн сонголт · <kbd>Esc</kbd> буцах</p>
+      </section>
+
+      <section id="screen-llm-provider" class="panel screen hidden" hidden>
+        <h2 class="panel-title" id="llm-provider-title">LLM үйлчилгээ</h2>
+        <ul class="menu" role="list" aria-labelledby="llm-provider-title">
+          <li><button type="button" class="menu-btn" data-llm-provider="egune">Egune</button></li>
+          <li><button type="button" class="menu-btn" data-llm-provider="claude">Claude</button></li>
+          <li><button type="button" class="menu-btn" data-llm-provider="openai">ChatGPT (OpenAI)</button></li>
+          <li><button type="button" class="menu-btn menu-btn--ghost" data-action="back-llm-menu">Буцах</button></li>
+        </ul>
+        <p class="hint"><kbd>↑</kbd><kbd>↓</kbd> · дарж эсвэл <kbd>Enter</kbd> · <kbd>Esc</kbd> буцах</p>
+      </section>
+
+      <section id="screen-llm-config" class="panel screen hidden" hidden>
+        <h2 class="panel-title" id="llm-config-title">API түлхүүр ба загвар</h2>
+        <p class="llm-provider-tag" id="llm-provider-tag"></p>
+        <form id="form-llm" class="llm-form" autocomplete="off">
+          <label class="llm-field">
+            <span class="llm-label">API_KEY</span>
+            <input type="password" id="llm-api-key" name="apiKey" required placeholder="API түлхүүр" spellcheck="false" />
+          </label>
+          <label class="llm-field">
+            <span class="llm-label">MODEL</span>
+            <input type="text" id="llm-model" name="model" required placeholder="Жишээ: gpt-4o-mini, claude-3-5-sonnet-20241022" spellcheck="false" />
+          </label>
+          <p id="llm-config-error" class="llm-error hidden" role="alert"></p>
+          <div class="llm-form-actions">
+            <button type="submit" class="btn btn--primary" id="btn-llm-start">Үргэлжлүүлэх</button>
+            <button type="button" class="btn btn--ghost" id="btn-llm-config-back">Буцах</button>
+          </div>
+        </form>
+        <p class="hint llm-hint">Сервер: <code>make web</code> эсвэл <code>go run ./cmd/web</code> — анхдагч порт <strong>4000</strong>. Өөр порт: <code>PORT=4001 make web</code></p>
+      </section>
+
+      <section id="screen-game" class="panel panel--game screen hidden" hidden>
+        <div id="taunt-wrap" class="taunt-wrap hidden" aria-label="Ботын үг">
+          <div class="taunt-bubble">
+            <p id="taunt-text" class="taunt-text"></p>
+            <span class="taunt-label" id="taunt-label">— Бот</span>
+          </div>
+        </div>
+
+        <div id="game-meta" class="game-meta"></div>
+
+        <div id="board-wrap" class="board-wrap">
+          <div id="win-line" class="win-line hidden" aria-hidden="true"></div>
+          <div id="board" class="board" role="grid" aria-label="Баатараа — тоглоомын самбар"></div>
+        </div>
+
+        <div id="status" class="status" role="status" aria-live="polite" aria-atomic="true"></div>
+        <div id="delight" class="delight hidden" aria-live="polite"></div>
+
+        <div class="game-actions">
+          <button type="button" class="btn btn--primary" id="btn-rematch">Дахин тоглох</button>
+          <button type="button" class="btn btn--ghost" id="btn-menu">Цэс</button>
+        </div>
+        <p class="hint game-hint">Нүдийг дарна · <kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd> шилжих · <kbd>r</kbd> дахин тоглох · <kbd>m</kbd> цэс</p>
+      </section>
+    </main>
+  </div>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
