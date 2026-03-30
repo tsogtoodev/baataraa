@@ -8,6 +8,13 @@
 | Вэб + LLM прокси | `make web` → `http://localhost:4000` |
 | Порт солих | `PORT=4001 make web` |
 
+## Vercel deploy
+
+- Статик frontend нь `web/` хавтсаас serve хийгдэнэ
+- `POST /api/llm-move` нь Vercel Go function (`api/llm-move.go`) болно
+- `vercel.json` нь `outputDirectory: "web"` ашиглаж build алхмыг шаардахгүй
+- Local хөгжүүлэлт дээр `make web` хэвээр ажиллана
+
 ## Технологи
 
 - Go 1.24+
@@ -16,4 +23,3 @@
 ---
 
 *Inspired by my beautiful wife Delgermaa.*
-
