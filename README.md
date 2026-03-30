@@ -1,23 +1,23 @@
 # Баатараа (gogame)
 
-Тик-так-тое вэб хувилбар (LLM-тай тоглох боломжтой). Вэбийг `make web` эсвэл `go run ./cmd/web` ашиглан ачаална (анхдагч порт `4000`).
+Web tic-tac-toe with optional LLM play. Start the web app with `make web` or `go run ./cmd/web` (default port `4000`).
 
-## Ажиллуулах
+## Run
 
-| Вэб + LLM прокси | `make web` → `http://localhost:4000` |
-| Порт солих | `PORT=4001 make web` |
+| Web + LLM proxy | `make web` → `http://localhost:4000` |
+| Change port | `PORT=4001 make web` |
 
 ## Vercel deploy
 
-- Статик frontend нь `web/` хавтсаас serve хийгдэнэ
-- `POST /api/llm-move` нь Vercel Go function (`api/llm-move.go`) болно
-- `vercel.json` нь `outputDirectory: "web"` ашиглаж build алхмыг шаардахгүй
-- Local хөгжүүлэлт дээр `make web` хэвээр ажиллана
+- The static frontend is served from `web/`
+- `POST /api/llm-move` runs as a Vercel Go function (`api/llm-move.go`)
+- `vercel.json` uses `outputDirectory: "web"` and does not require a build step
+- Local development still uses `make web`
 
-## Технологи
+## Tech
 
 - Go 1.24+
-- Вэб: статик HTML/CSS/JS, LLM дуудлага `cmd/web` серверээр дамжина
+- Web: static HTML/CSS/JS, with LLM calls proxied through `cmd/web`
 
 ---
 
