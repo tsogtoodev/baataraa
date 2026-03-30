@@ -15,6 +15,5 @@
 
 ---
 
-*Inspired by my beautiful Delgermaa.*
+*Inspired by my beautiful wife Delgermaa.*
 
-Энэ төсөл миний сайхан **Дэлгэрмаа**-аас сонголт авсан, түүнийгээ хайртайгаар дурсгав.
